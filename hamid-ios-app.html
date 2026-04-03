@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>TroškovnikBA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..800&display=swap" rel="stylesheet">
+<style>
+:root {
+  color-scheme: light dark;
+  --bg:#f2f2f7;--bg2:#ffffff;--bg3:#f2f2f7;--bg4:#e5e5ea;
+  --surface:#ffffff;--surface2:#f2f2f7;--surface3:#e5e5ea;
+  --sep:rgba(60,60,67,0.12);--sep2:rgba(60,60,67,0.06);
+  --text:#000000;--text2:rgba(60,60,67,0.6);--text3:rgba(60,60,67,0.3);
+  --accent:#34c759;--accent2:#30b350;--accent-bg:rgba(52,199,89,0.12);
+  --red:#ff3b30;--red-bg:rgba(255,59,48,0.12);
+  --orange:#ff9500;--orange-bg:rgba(255,149,0,0.12);
+  --blue:#007aff;--blue-bg:rgba(0,122,255,0.12);
+  --purple:#af52de;--purple-bg:rgba(175,82,222,0.12);
+  --teal:#5ac8fa;--teal-bg:rgba(90,200,250,0.12);
+  --indigo:#5856d6;--indigo-bg:rgba(88,86,214,0.12);
+  --pink:#ff2d55;--pink-bg:rgba(255,45,85,0.12);
+  --yellow:#ffcc00;--yellow-bg:rgba(255,204,0,0.12);
+  --brown:#a2845e;--brown-bg:rgba(162,132,94,0.12);
+  --radius:16px;--radius-sm:10px;--radius-xs:8px;
+  --font:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+  --safe-top:env(safe-area-inset-top,0px);
+}
+@media(prefers-color-scheme:dark){:root{
+  --bg:#000000;--bg2:#1c1c1e;--bg3:#2c2c2e;--bg4:#3a3a3c;
+  --surface:#1c1c1e;--surface2:#2c2c2e;--surface3:#3a3a3c;
+  --sep:rgba(84,84,88,0.6);--sep2:rgba(84,84,88,0.25);
+  --text:#ffffff;--text2:rgba(235,235,245,0.6);--text3:rgba(235,235,245,0.18);
+  --accent:#30d158;--accent2:#28b84c;--accent-bg:rgba(48,209,88,0.15);
+  --red:#ff453a;--red-bg:rgba(255,69,58,0.15);
+  --orange:#ff9f0a;--orange-bg:rgba(255,159,10,0.15);
+  --blue:#0a84ff;--blue-bg:rgba(10,132,255,0.15);
+  --purple:#bf5af2;--purple-bg:rgba(191,90,242,0.15);
+  --teal:#64d2ff;--teal-bg:rgba(100,210,255,0.15);
+  --indigo:#5e5ce6;--indigo-bg:rgba(94,92,230,0.15);
+  --pink:#ff375f;--pink-bg:rgba(255,55,95,0.15);
+  --yellow:#ffd60a;--yellow-bg:rgba(255,214,10,0.15);
+  --brown:#b59469;--brown-bg:rgba(181,148,105,0.15);
+}}
+[data-theme="light"]{
+  --bg:#f2f2f7;--bg2:#ffffff;--bg3:#f2f2f7;--bg4:#e5e5ea;
+  --surface:#ffffff;--surface2:#f2f2f7;--surface3:#e5e5ea;
+  --sep:rgba(60,60,67,0.12);--sep2:rgba(60,60,67,0.06);
+  --text:#000000;--text2:rgba(60,60,67,0.6);--text3:rgba(60,60,67,0.3);
+  --accent:#34c759;--accent2:#30b350;--accent-bg:rgba(52,199,89,0.12);
+  --red:#ff3b30;--red-bg:rgba(255,59,48,0.12);
+  --orange:#ff9500;--orange-bg:rgba(255,149,0,0.12);
+  --blue:#007aff;--blue-bg:rgba(0,122,255,0.12);
+  --purple:#af52de;--purple-bg:rgba(175,82,222,0.12);
+  --teal:#5ac8fa;--teal-bg:rgba(90,200,250,0.12);
+  --indigo:#5856d6;--indigo-bg:rgba(88,86,214,0.12);
+  --pink:#ff2d55;--pink-bg:rgba(255,45,85,0.12);
+  --yellow:#ffcc00;--yellow-bg:rgba(255,204,0,0.12);
+  --brown:#a2845e;--brown-bg:rgba(162,132,94,0.12);
+}
+[data-theme="dark"]{
+  --bg:#000000;--bg2:#1c1c1e;--bg3:#2c2c2e;--bg4:#3a3a3c;
+  --surface:#1c1c1e;--surface2:#2c2c2e;--surface3:#3a3a3c;
+  --sep:rgba(84,84,88,0.6);--sep2:rgba(84,84,88,0.25);
+  --text:#ffffff;--text2:rgba(235,235,245,0.6);--text3:rgba(235,235,245,0.18);
+  --accent:#30d158;--accent2:#28b84c;--accent-bg:rgba(48,209,88,0.15);
+  --red:#ff453a;--red-bg:rgba(255,69,58,0.15);
+  --orange:#ff9f0a;--orange-bg:rgba(255,159,10,0.15);
+  --blue:#0a84ff;--blue-bg:rgba(10,132,255,0.15);
+  --purple:#bf5af2;--purple-bg:rgba(191,90,242,0.15);
+  --teal:#64d2ff;--teal-bg:rgba(100,210,255,0.15);
+  --indigo:#5e5ce6;--indigo-bg:rgba(94,92,230,0.15);
+  --pink:#ff375f;--pink-bg:rgba(255,55,95,0.15);
+  --yellow:#ffd60a;--yellow-bg:rgba(255,214,10,0.15);
+  --brown:#b59469;--brown-bg:rgba(181,148,105,0.15);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;-webkit-text-size-adjust:100%;}
+body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100dvh;overflow-x:hidden;-webkit-font-smoothing:antialiased;padding-bottom:calc(84px + var(--safe-bottom));}
+img,svg{display:block;}
+button{cursor:pointer;background:none;border:none;font:inherit;color:inherit;}
+input,select,textarea{font:inherit;color:inherit;}
+::-webkit-scrollbar{width:0;}
+.nav-header{position:sticky;top:0;z-index:100;padding:calc(var(--safe-top) + 12px) 20px 12px;background:color-mix(in srgb,var(--bg) 85%,transparent);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:0.5px solid var(--sep2);}
+.nav-header-inner{display:flex;align-items:center;justify-content:space-between;}
+.nav-logo{display:flex;align-items:center;gap:8px;}
+.nav-logo-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--accent),#00a83a);display:flex;align-items:center;justify-content:center;}
+.nav-logo-mark svg{color:white;}
+.nav-logo-text{font-size:17px;font-weight:700;letter-spacing:-0.3px;}
+.nav-logo-text em{color:var(--accent);font-style:normal;}
+.nav-actions{display:flex;gap:4px;}
+.nav-btn{width:34px;height:34px;border-radius:50%;background:var(--surface2);display:flex;align-items:center;justify-content:center;color:var(--blue);transition:opacity 0.15s,transform 0.1s;}
+.nav-btn:active{opacity:0.6;transform:scale(0.93);}
+.page{display:none;padding:0 0 20px;}
+.page.active{display:block;}
+.page-title{font-size:34px;font-weight:700;letter-spacing:-0.5px;padding:8px 20px 4px;}
+.page-subtitle{font-size:13px;color:var(--text2);padding:0 20px 16px;}
+.hero-card{margin:12px 20px 0;background:linear-gradient(135deg,#1a7a4a 0%,#0d5c35 60%,#0a4228 100%);border-radius:20px;padding:24px;overflow:hidden;position:relative;}
+.hero-card::before{content:'';position:absolute;top:-40px;right:-30px;width:180px;height:180px;border-radius:50%;background:rgba(255,255,255,0.06);}
+.hero-card::after{content:'';position:absolute;bottom:-50px;right:40px;width:140px;height:140px;border-radius:50%;background:rgba(255,255,255,0.04);}
+.hero-label{font-size:13px;color:rgba(255,255,255,0.65);font-weight:500;margin-bottom:6px;}
+.hero-amount{font-size:42px;font-weight:700;color:white;letter-spacing:-1px;line-height:1;margin-bottom:4px;font-variant-numeric:tabular-nums;}
+.hero-currency{font-size:22px;font-weight:400;opacity:0.8;margin-left:2px;}
+.hero-sub{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:20px;}
+.hero-stats{display:flex;gap:0;}
+.hero-stat{flex:1;background:rgba(255,255,255,0.1);border-radius:12px;padding:10px 12px;margin-right:8px;}
+.hero-stat:last-child{margin-right:0;}
+.hero-stat-val{font-size:16px;font-weight:700;color:white;font-variant-numeric:tabular-nums;}
+.hero-stat-label{font-size:11px;color:rgba(255,255,255,0.6);margin-top:2px;}
+.section{margin:20px 0 0;}
+.section-header{display:flex;align-items:center;justify-content:space-between;padding:0 20px;margin-bottom:8px;}
+.section-title{font-size:20px;font-weight:700;letter-spacing:-0.3px;}
+.section-link{font-size:15px;color:var(--blue);font-weight:500;cursor:pointer;}
+.section-link:active{opacity:0.6;}
+.list-group{margin:0 20px;background:var(--surface);border-radius:var(--radius);overflow:hidden;}
+.list-row{display:flex;align-items:center;gap:12px;padding:12px 16px;position:relative;transition:background 0.1s;cursor:pointer;min-height:60px;}
+.list-row:active{background:var(--surface2);}
+.list-row+.list-row::before{content:'';position:absolute;top:0;left:60px;right:0;height:0.5px;background:var(--sep);}
+.list-icon{width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.list-info{flex:1;min-width:0;}
+.list-name{font-size:15px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.list-meta{font-size:12px;color:var(--text2);margin-top:2px;display:flex;align-items:center;gap:6px;}
+.list-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;}
+.list-amount{font-size:15px;font-weight:600;font-variant-numeric:tabular-nums;}
+.pill{font-size:10px;font-weight:600;padding:2px 7px;border-radius:20px;text-transform:uppercase;letter-spacing:0.3px;}
+.pill-monthly{background:var(--blue-bg);color:var(--blue);}
+.pill-annual{background:var(--orange-bg);color:var(--orange);}
+.pill-once{background:var(--surface3);color:var(--text2);}
+.pill-due{background:var(--red-bg);color:var(--red);}
+.alert-card{margin:16px 20px 0;background:var(--orange-bg);border-radius:var(--radius);padding:14px 16px;border:0.5px solid color-mix(in srgb,var(--orange) 20%,transparent);}
+.alert-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.alert-title{font-size:13px;font-weight:700;color:var(--orange);letter-spacing:0.2px;text-transform:uppercase;}
+.alert-row{display:flex;align-items:center;justify-content:space-between;padding:3px 0;}
+.alert-name{font-size:14px;font-weight:500;}
+.alert-right{display:flex;align-items:center;gap:10px;}
+.alert-date{font-size:12px;color:var(--text2);}
+.alert-amt{font-size:14px;font-weight:700;color:var(--orange);font-variant-numeric:tabular-nums;}
+.donut-section{margin:20px 20px 0;}
+.donut-card{background:var(--surface);border-radius:var(--radius);padding:20px;}
+.donut-inner{display:flex;align-items:center;gap:20px;margin-bottom:16px;}
+.donut-wrap{position:relative;width:100px;height:100px;flex-shrink:0;}
+.donut-wrap svg{transform:rotate(-90deg);}
+.donut-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.donut-center-val{font-size:13px;font-weight:800;color:var(--text);font-variant-numeric:tabular-nums;}
+.donut-center-lbl{font-size:9px;color:var(--text2);margin-top:2px;font-weight:500;}
+.donut-legend{flex:1;display:flex;flex-direction:column;gap:8px;}
+.legend-row{display:flex;align-items:center;gap:8px;}
+.legend-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+.legend-name{font-size:12px;color:var(--text2);flex:1;}
+.legend-val{font-size:12px;font-weight:700;font-variant-numeric:tabular-nums;}
+.budget-lbl-row{display:flex;justify-content:space-between;margin-bottom:6px;}
+.budget-lbl{font-size:12px;color:var(--text2);}
+.budget-pct{font-size:12px;font-weight:700;}
+.bar-track{height:6px;background:var(--surface3);border-radius:3px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:3px;transition:width 0.8s cubic-bezier(0.34,1.56,0.64,1);background:var(--accent);}
+.bar-fill.warn{background:var(--orange);}
+.bar-fill.danger{background:var(--red);}
+.fab{position:fixed;bottom:calc(84px + var(--safe-bottom) + 16px);right:20px;width:52px;height:52px;border-radius:50%;background:var(--blue);color:white;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(0,122,255,0.4);z-index:200;transition:transform 0.15s,opacity 0.15s;}
+.fab:active{transform:scale(0.93);opacity:0.85;}
+.tab-bar{position:fixed;bottom:0;left:0;right:0;z-index:100;background:color-mix(in srgb,var(--surface) 90%,transparent);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-top:0.5px solid var(--sep);padding:8px 0 calc(var(--safe-bottom) + 8px);display:flex;}
+.tab-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:4px 0;cursor:pointer;transition:opacity 0.1s,transform 0.1s;}
+.tab-item:active{transform:scale(0.9);}
+.tab-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:18px;transition:background 0.15s;}
+.tab-label{font-size:10px;font-weight:500;color:var(--text2);transition:color 0.15s;}
+.tab-item.active .tab-icon{background:var(--accent-bg);}
+.tab-item.active .tab-label{color:var(--accent);font-weight:600;}
+.tab-item.active svg{color:var(--accent)!important;}
+.sheet-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:300;display:none;align-items:flex-end;backdrop-filter:blur(4px);}
+.sheet-overlay.open{display:flex;}
+.sheet{background:var(--surface);width:100%;max-height:92dvh;border-radius:20px 20px 0 0;overflow:hidden;display:flex;flex-direction:column;animation:slideUp 0.38s cubic-bezier(0.34,1.56,0.64,1);}
+@keyframes slideUp{from{transform:translateY(100%);opacity:0;}to{transform:translateY(0);opacity:1;}}
+.sheet-handle{width:36px;height:4px;background:var(--surface3);border-radius:2px;margin:12px auto 0;flex-shrink:0;}
+.sheet-scroll{overflow-y:auto;flex:1;padding:0 0 calc(var(--safe-bottom) + 20px);}
+.sheet-title{font-size:20px;font-weight:700;padding:16px 20px 4px;letter-spacing:-0.3px;}
+.form-section{margin:16px 20px 0;}
+.form-label-text{font-size:13px;color:var(--text2);font-weight:500;margin-bottom:6px;padding-left:4px;}
+.form-group{background:var(--surface2);border-radius:var(--radius-sm);overflow:hidden;}
+.form-field{display:flex;align-items:center;gap:12px;padding:14px 16px;position:relative;background:var(--surface2);}
+.form-field+.form-field::before{content:'';position:absolute;top:0;left:16px;right:0;height:0.5px;background:var(--sep);}
+.form-field-label{font-size:15px;font-weight:400;min-width:110px;color:var(--text);}
+.form-input-right{flex:1;text-align:right;}
+.form-input-right input,.form-input-right select{width:100%;text-align:right;background:transparent;border:none;outline:none;font-size:15px;color:var(--text);-webkit-appearance:none;}
+.form-input-right input::placeholder{color:var(--text3);}
+.form-input-right select option{background:var(--surface);color:var(--text);}
+.emoji-picker{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;padding:4px 0;}
+.emoji-opt{width:100%;aspect-ratio:1;border-radius:10px;font-size:22px;display:flex;align-items:center;justify-content:center;background:var(--surface3);cursor:pointer;transition:transform 0.1s,background 0.1s;}
+.emoji-opt:active,.emoji-opt.selected{background:var(--accent-bg);transform:scale(0.93);}
+.emoji-opt.selected{outline:2px solid var(--accent);}
+.color-picker{display:flex;gap:10px;flex-wrap:wrap;padding:4px 0;}
+.color-opt{width:30px;height:30px;border-radius:50%;cursor:pointer;transition:transform 0.1s;position:relative;}
+.color-opt:active{transform:scale(0.9);}
+.color-opt.selected::after{content:'✓';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:white;font-size:14px;font-weight:700;}
+.sheet-actions{padding:12px 20px 0;display:flex;flex-direction:column;gap:10px;}
+.btn-main{width:100%;padding:15px;border-radius:var(--radius-sm);font-size:17px;font-weight:600;border:none;cursor:pointer;transition:opacity 0.1s,transform 0.1s;}
+.btn-main:active{opacity:0.75;transform:scale(0.98);}
+.btn-confirm{background:var(--blue);color:white;}
+.btn-cancel{background:var(--surface2);color:var(--text);}
+.btn-delete{background:var(--red-bg);color:var(--red);}
+.settings-section-label{font-size:13px;color:var(--text2);font-weight:500;padding:0 4px 8px 4px;margin:20px 20px 0;text-transform:uppercase;letter-spacing:0.5px;}
+.settings-list{margin:0 20px;}
+.settings-group{background:var(--surface);border-radius:var(--radius);overflow:hidden;margin-bottom:4px;}
+.settings-row{display:flex;align-items:center;gap:14px;padding:12px 16px;position:relative;min-height:52px;}
+.settings-row+.settings-row::before{content:'';position:absolute;top:0;left:56px;right:0;height:0.5px;background:var(--sep);}
+.settings-icon-wrap{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.settings-info{flex:1;}
+.settings-name{font-size:15px;font-weight:500;}
+.settings-desc{font-size:12px;color:var(--text2);margin-top:1px;}
+.settings-right{color:var(--text2);}
+.ios-toggle{position:relative;width:51px;height:31px;flex-shrink:0;}
+.ios-toggle input{opacity:0;width:0;height:0;}
+.ios-slider{position:absolute;inset:0;border-radius:34px;background:var(--surface3);cursor:pointer;transition:background 0.25s;}
+.ios-slider::before{content:'';position:absolute;height:27px;width:27px;left:2px;bottom:2px;background:white;border-radius:50%;transition:transform 0.25s cubic-bezier(0.34,1.56,0.64,1);box-shadow:0 2px 6px rgba(0,0,0,0.25);}
+.ios-toggle input:checked+.ios-slider{background:var(--accent);}
+.ios-toggle input:checked+.ios-slider::before{transform:translateX(20px);}
+.manage-btn{display:flex;align-items:center;gap:8px;padding:14px 20px;color:var(--blue);font-size:15px;font-weight:500;cursor:pointer;}
+.manage-btn:active{opacity:0.6;}
+.toast{position:fixed;top:calc(var(--safe-top) + 60px);left:50%;transform:translateX(-50%) translateY(-20px);background:color-mix(in srgb,var(--surface3) 95%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--text);padding:10px 20px;border-radius:20px;font-size:14px;font-weight:500;z-index:999;white-space:nowrap;opacity:0;transition:opacity 0.3s,transform 0.3s;box-shadow:0 4px 20px rgba(0,0,0,0.15);}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+.empty{display:flex;flex-direction:column;align-items:center;text-align:center;padding:60px 40px;gap:12px;}
+.empty-icon{font-size:48px;}
+.empty-title{font-size:17px;font-weight:600;}
+.empty-sub{font-size:14px;color:var(--text2);}
+.empty-btn{margin-top:8px;padding:12px 28px;background:var(--blue);color:white;border-radius:14px;font-size:15px;font-weight:600;cursor:pointer;border:none;}
+.empty-btn:active{opacity:0.75;}
+</style>
+</head>
+<body>
+<header class="nav-header">
+  <div class="nav-header-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-mark">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+      </div>
+      <span class="nav-logo-text">Troškovnik<em>BA</em></span>
+    </div>
+    <div class="nav-actions">
+      <button class="nav-btn" onclick="openAdd()">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="page active" id="page-pregled">
+  <div class="page-title">Pregled</div>
+  <div class="hero-card">
+    <div class="hero-label">Ukupno ove godine</div>
+    <div class="hero-amount"><span id="h-annual">0</span><span class="hero-currency"> KM</span></div>
+    <div class="hero-sub" id="h-month-label"></div>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hero-stat-val" id="h-monthly">0 KM</div><div class="hero-stat-label">Ovaj mjesec</div></div>
+      <div class="hero-stat"><div class="hero-stat-val" id="h-count">0</div><div class="hero-stat-label">Stavki</div></div>
+      <div class="hero-stat"><div class="hero-stat-val" id="h-subs">0 KM</div><div class="hero-stat-label">Pretplate</div></div>
+    </div>
+  </div>
+  <div id="alert-section"></div>
+  <div class="donut-section">
+    <div class="donut-card">
+      <div class="donut-inner">
+        <div class="donut-wrap">
+          <svg width="100" height="100" viewBox="0 0 100 100" id="donut-svg"></svg>
+          <div class="donut-center"><div class="donut-center-val" id="donut-center-val">0KM</div><div class="donut-center-lbl">mjesečno</div></div>
+        </div>
+        <div class="donut-legend" id="donut-legend"></div>
+      </div>
+      <div class="budget-lbl-row"><span class="budget-lbl" id="budget-lbl">Budžet nije postavljen</span><span class="budget-pct" id="budget-pct-lbl"></span></div>
+      <div class="bar-track"><div class="bar-fill" id="bar-fill" style="width:0%"></div></div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-header"><span class="section-title">Nedavno</span><span class="section-link" onclick="goTab('troskovi')">Svi →</span></div>
+    <div class="list-group" id="recent-list"></div>
+  </div>
+</div>
+
+<div class="page" id="page-troskovi">
+  <div class="page-title">Svi troškovi</div>
+  <div class="page-subtitle" id="all-subtitle"></div>
+  <div class="list-group" style="margin:0 20px;" id="all-list"></div>
+</div>
+
+<div class="page" id="page-komunalije">
+  <div class="page-title">Komunalije</div>
+  <div class="page-subtitle">Struja, voda, gas i komunalne usluge</div>
+  <div class="list-group" style="margin:0 20px;" id="kom-list"></div>
+  <button class="manage-btn" onclick="openManageCat('komunalije')">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    Upravljaj kategorijama komunalija
+  </button>
+</div>
+
+<div class="page" id="page-pretplate">
+  <div class="page-title">Pretplate</div>
+  <div class="page-subtitle">Netflix, Spotify, iCloud i digitalne usluge</div>
+  <div class="list-group" style="margin:0 20px;" id="pre-list"></div>
+  <button class="manage-btn" onclick="openManageCat('pretplate')">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+    Upravljaj kategorijama pretplata
+  </button>
+</div>
+
+<div class="page" id="page-postavke">
+  <div class="page-title">Postavke</div>
+  <div class="settings-section-label">Profil</div>
+  <div class="settings-list">
+    <div class="settings-group">
+      <div class="settings-row"><div class="settings-icon-wrap" style="background:var(--accent-bg);">🧑‍💼</div><div class="settings-info"><div class="settings-name">Hamid Mehinović</div><div class="settings-desc">Sarajevo, BiH</div></div></div>
+      <div class="settings-row" onclick="openBudget()" style="cursor:pointer;"><div class="settings-icon-wrap" style="background:var(--orange-bg);">💰</div><div class="settings-info"><div class="settings-name">Mjesečni budžet</div><div class="settings-desc" id="s-budget-desc">Nije postavljeno</div></div><div class="settings-right"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div></div>
+      <div class="settings-row"><div class="settings-icon-wrap" style="background:var(--blue-bg);">💱</div><div class="settings-info"><div class="settings-name">Valuta</div><div class="settings-desc">BAM – Bosanskohercegovačka marka (KM)</div></div></div>
+    </div>
+  </div>
+  <div class="settings-section-label">Izgled</div>
+  <div class="settings-list">
+    <div class="settings-group">
+      <div class="settings-row"><div class="settings-icon-wrap" style="background:var(--surface2);">🎨</div><div class="settings-info"><div class="settings-name">Pratiti iOS sistemske postavke</div><div class="settings-desc">Automatski light/dark mod</div></div><label class="ios-toggle"><input type="checkbox" id="toggle-system" onchange="applyThemeMode()" checked><span class="ios-slider"></span></label></div>
+      <div class="settings-row" id="manual-theme-row" style="display:none;"><div class="settings-icon-wrap" style="background:var(--surface2);">🌙</div><div class="settings-info"><div class="settings-name">Tamni mod</div><div class="settings-desc">Ručno odaberi temu</div></div><label class="ios-toggle"><input type="checkbox" id="toggle-dark" onchange="applyManualTheme()"><span class="ios-slider"></span></label></div>
+    </div>
+  </div>
+  <div class="settings-section-label">Kategorije</div>
+  <div class="settings-list">
+    <div class="settings-group">
+      <div class="settings-row" onclick="openManageCat('komunalije')" style="cursor:pointer;"><div class="settings-icon-wrap" style="background:var(--blue-bg);">🏠</div><div class="settings-info"><div class="settings-name">Komunalije</div><div class="settings-desc" id="s-kom-count">0 kategorija</div></div><div class="settings-right"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div></div>
+      <div class="settings-row" onclick="openManageCat('pretplate')" style="cursor:pointer;"><div class="settings-icon-wrap" style="background:var(--purple-bg);">📱</div><div class="settings-info"><div class="settings-name">Pretplate</div><div class="settings-desc" id="s-pre-count">0 kategorija</div></div><div class="settings-right"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div></div>
+    </div>
+  </div>
+  <div class="settings-section-label">Opasna zona</div>
+  <div class="settings-list">
+    <div class="settings-group">
+      <div class="settings-row" onclick="clearAll()" style="cursor:pointer;"><div class="settings-icon-wrap" style="background:var(--red-bg);">🗑️</div><div class="settings-info"><div class="settings-name" style="color:var(--red);">Obriši sve podatke</div><div class="settings-desc">Briše sve troškove</div></div><div class="settings-right"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div></div>
+    </div>
+  </div>
+</div>
+
+<button class="fab" onclick="openAdd()">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+</button>
+
+<nav class="tab-bar">
+  <div class="tab-item active" id="tab-pregled" onclick="goTab('pregled')"><div class="tab-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div><span class="tab-label">Pregled</span></div>
+  <div class="tab-item" id="tab-troskovi" onclick="goTab('troskovi')"><div class="tab-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg></div><span class="tab-label">Troškovi</span></div>
+  <div class="tab-item" id="tab-komunalije" onclick="goTab('komunalije')"><div class="tab-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><span class="tab-label">Komunalije</span></div>
+  <div class="tab-item" id="tab-pretplate" onclick="goTab('pretplate')"><div class="tab-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><span class="tab-label">Pretplate</span></div>
+  <div class="tab-item" id="tab-postavke" onclick="goTab('postavke')"><div class="tab-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></div><span class="tab-label">Postavke</span></div>
+</nav>
+<!-- MODALI -->
+<div class="sheet-overlay" id="sheet-add" onclick="closeSheetOutside(event,'sheet-add')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-scroll">
+      <div class="sheet-title" id="sheet-add-title">Novi trošak</div>
+      <div class="form-section">
+        <div class="form-label-text">Kategorija</div>
+        <div class="form-group">
+          <div class="form-field">
+            <span class="form-field-label">Tip</span>
+            <div class="form-input-right">
+              <select id="add-type" onchange="refreshCatSelect()">
+                <option value="komunalije">Komunalije</option>
+                <option value="pretplate">Pretplate</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-field">
+            <span class="form-field-label">Kategorija</span>
+            <div class="form-input-right"><select id="add-cat"></select></div>
+          </div>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-label-text">Detalji</div>
+        <div class="form-group">
+          <div class="form-field">
+            <span class="form-field-label">Naziv</span>
+            <div class="form-input-right"><input id="add-name" type="text" placeholder="npr. Struja januar"></div>
+          </div>
+          <div class="form-field">
+            <span class="form-field-label">Iznos (KM)</span>
+            <div class="form-input-right"><input id="add-amount" type="number" step="0.01" placeholder="0.00"></div>
+          </div>
+          <div class="form-field">
+            <span class="form-field-label">Datum</span>
+            <div class="form-input-right"><input id="add-date" type="date"></div>
+          </div>
+          <div class="form-field">
+            <span class="form-field-label">Ponavljanje</span>
+            <div class="form-input-right">
+              <select id="add-freq">
+                <option value="monthly">Mjesečno</option>
+                <option value="annual">Godišnje</option>
+                <option value="once">Jednom</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-label-text">Napomena (opciono)</div>
+        <div class="form-group">
+          <div class="form-field">
+            <div class="form-input-right" style="text-align:left;"><input id="add-note" type="text" placeholder="Kratka napomena..." style="text-align:left;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sheet-actions">
+        <button class="btn-main btn-confirm" id="btn-save-expense" onclick="saveExpense()">Spremi</button>
+        <button class="btn-main btn-delete" id="btn-del-expense" onclick="deleteExpense()" style="display:none;">Obriši trošak</button>
+        <button class="btn-main btn-cancel" onclick="closeSheet('sheet-add')">Odustani</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet-overlay" id="sheet-manage" onclick="closeSheetOutside(event,'sheet-manage')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-scroll">
+      <div class="sheet-title" id="sheet-manage-title">Kategorije</div>
+      <div id="manage-list" style="margin:8px 20px 0;"></div>
+      <div class="sheet-actions">
+        <button class="btn-main btn-confirm" onclick="openNewCat()">+ Dodaj kategoriju</button>
+        <button class="btn-main btn-cancel" onclick="closeSheet('sheet-manage')">Zatvori</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet-overlay" id="sheet-cat" onclick="closeSheetOutside(event,'sheet-cat')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-scroll">
+      <div class="sheet-title" id="sheet-cat-title">Nova kategorija</div>
+      <div class="form-section">
+        <div class="form-label-text">Naziv kategorije</div>
+        <div class="form-group">
+          <div class="form-field">
+            <div class="form-input-right" style="text-align:left;"><input id="cat-name" type="text" placeholder="npr. Internet" style="text-align:left;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-label-text">Emoji ikona</div>
+        <div class="form-group" style="padding:12px 14px;">
+          <div class="emoji-picker" id="emoji-picker"></div>
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-label-text">Boja</div>
+        <div class="form-group" style="padding:12px 14px;">
+          <div class="color-picker" id="color-picker"></div>
+        </div>
+      </div>
+      <div class="sheet-actions">
+        <button class="btn-main btn-confirm" onclick="saveCat()">Spremi kategoriju</button>
+        <button class="btn-main btn-delete" id="btn-del-cat" onclick="deleteCat()" style="display:none;">Obriši kategoriju</button>
+        <button class="btn-main btn-cancel" onclick="closeSheet('sheet-cat')">Odustani</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sheet-overlay" id="sheet-budget" onclick="closeSheetOutside(event,'sheet-budget')">
+  <div class="sheet">
+    <div class="sheet-handle"></div>
+    <div class="sheet-scroll">
+      <div class="sheet-title">Postavi budžet</div>
+      <div class="form-section">
+        <div class="form-label-text">Iznos</div>
+        <div class="form-group">
+          <div class="form-field">
+            <span class="form-field-label">Månthly (KM)</span>
+            <div class="form-input-right"><input id="budget-input" type="number" step="10" placeholder="500.00"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sheet-actions">
+        <button class="btn-main btn-confirm" onclick="saveBudget()">Spremi budžet</button>
+        <button class="btn-main btn-cancel" onclick="closeSheet('sheet-budget')">Odustani</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── DATA ───────────────────────────────────────────────────────────────────
+const EMOJIS = ['💡','💧','🔥','🌬️','📡','🏠','🚗','🛡️','🗑️','🔒','💳','📱','🎬','🎵','☁️','🏋️','🤸','⚽','📦','💼','🎮','📚','🍎','🌍','🎤','🧑‍💻','🏦','🚑','✈️','🛒'];
+const COLORS = ['blue','purple','red','orange','yellow','green','teal','indigo','pink','brown'];
+const COLOR_HEX = {blue:'#007aff',purple:'#af52de',red:'#ff3b30',orange:'#ff9500',yellow:'#ffcc00',green:'#34c759',teal:'#5ac8fa',indigo:'#5856d6',pink:'#ff2d55',brown:'#a2845e'};
+
+const DEFAULT_KOM = [
+  {id:'k1',name:'Struja (EP BiH)',emoji:'💡',color:'yellow'},
+  {id:'k2',name:'Voda (ViK)',emoji:'💧',color:'blue'},
+  {id:'k3',name:'Gas (BH-Gas)',emoji:'🔥',color:'orange'},
+  {id:'k4',name:'Internet / TV (BH Telecom)',emoji:'📡',color:'blue'},
+  {id:'k5',name:'Odvoz smeća',emoji:'🗑️',color:'brown'},
+  {id:'k6',name:'Sector Security',emoji:'🔒',color:'indigo'},
+  {id:'k7',name:'Kasko osiguranje',emoji:'🚗',color:'red'},
+  {id:'k8',name:'GRAWE',emoji:'🛡️',color:'teal'},
+];
+const DEFAULT_PRE = [
+  {id:'p1',name:'Netflix',emoji:'🎬',color:'red'},
+  {id:'p2',name:'Spotify',emoji:'🎵',color:'green'},
+  {id:'p3',name:'iCloud',emoji:'☁️',color:'blue'},
+  {id:'p4',name:'Office 365',emoji:'💼',color:'blue'},
+  {id:'p5',name:'Google One',emoji:'🌍',color:'yellow'},
+  {id:'p6',name:'Trening Zlatan',emoji:'🏋️',color:'orange'},
+  {id:'p7',name:'Trening Tayra',emoji:'🤸',color:'pink'},
+  {id:'p8',name:'Fitness',emoji:'⚽',color:'green'},
+];
+
+// In-memory state (no localStorage due to sandbox)
+let state = {
+  expenses: [
+    {id:'e1',type:'komunalije',catId:'k1',name:'Struja januar',amount:87.50,date:'2026-01-15',freq:'monthly',note:'EP BiH'},
+    {id:'e2',type:'komunalije',catId:'k2',name:'Voda januar',amount:24.80,date:'2026-01-20',freq:'monthly',note:''},
+    {id:'e3',type:'komunalije',catId:'k3',name:'Gas januar',amount:112.00,date:'2026-01-18',freq:'monthly',note:''},
+    {id:'e4',type:'pretplate',catId:'p1',name:'Netflix',amount:14.99,date:'2026-01-01',freq:'monthly',note:'Standard'},
+    {id:'e5',type:'pretplate',catId:'p2',name:'Spotify',amount:6.99,date:'2026-01-01',freq:'monthly',note:''},
+    {id:'e6',type:'pretplate',catId:'p3',name:'iCloud 200GB',amount:2.99,date:'2026-01-01',freq:'monthly',note:''},
+    {id:'e7',type:'pretplate',catId:'p4',name:'Office 365',amount:10.99,date:'2026-02-01',freq:'monthly',note:''},
+    {id:'e8',type:'komunalije',catId:'k8',name:'GRAWE godišnje',amount:320.00,date:'2026-03-10',freq:'annual',note:''},
+    {id:'e9',type:'komunalije',catId:'k7',name:'Kasko osiguranje',amount:580.00,date:'2026-04-01',freq:'annual',note:''},
+  ],
+  komunalije: [...DEFAULT_KOM],
+  pretplate: [...DEFAULT_PRE],
+  budget: 500,
+};
+
+let editingExpenseId = null;
+let editingCatId = null;
+let managingType = null;
+let selectedEmoji = '💡';
+let selectedColor = 'blue';
+
+// ─── THEME ──────────────────────────────────────────────────────────────────
+function applyThemeMode() {
+  const sys = document.getElementById('toggle-system').checked;
+  const row = document.getElementById('manual-theme-row');
+  row.style.display = sys ? 'none' : 'flex';
+  if (sys) {
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    applyManualTheme();
+  }
+}
+function applyManualTheme() {
+  const dark = document.getElementById('toggle-dark').checked;
+  document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+}
+// Init: follow system
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+  if (document.getElementById('toggle-system').checked) {
+    document.documentElement.removeAttribute('data-theme');
+  }
+});
+
+// ─── NAVIGATION ─────────────────────────────────────────────────────────────
+function goTab(t) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-item').forEach(i => i.classList.remove('active'));
+  document.getElementById('page-' + t).classList.add('active');
+  document.getElementById('tab-' + t).classList.add('active');
+  if (t === 'pregled') renderPregled();
+  if (t === 'troskovi') renderAll();
+  if (t === 'komunalije') renderKom();
+  if (t === 'pretplate') renderPre();
+  if (t === 'postavke') renderPostavke();
+}
+
+// ─── HELPERS ────────────────────────────────────────────────────────────────
+function fmt(n) { return Number(n).toFixed(2); }
+function fmtKM(n) { return fmt(n) + ' KM'; }
+function uid() { return 'id_' + Math.random().toString(36).slice(2,9); }
+function getCat(type, id) { return state[type].find(c => c.id === id); }
+function colorVar(c) { return `var(--${c})`; }
+function colorBg(c) { return `var(--${c}-bg)`; }
+const MONTHS_BS = ['Januar','Februar','Mart','April','Maj','Juni','Juli','August','Septembar','Oktobar','Novembar','Decembar'];
+
+function monthlyEq(exp) {
+  if (exp.freq === 'monthly') return exp.amount;
+  if (exp.freq === 'annual') return exp.amount / 12;
+  return 0;
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 2200);
+}
+
+// ─── SHEETS ─────────────────────────────────────────────────────────────────
+function openSheet(id) { document.getElementById(id).classList.add('open'); }
+function closeSheet(id) { document.getElementById(id).classList.remove('open'); }
+function closeSheetOutside(e, id) { if (e.target === e.currentTarget) closeSheet(id); }
+
+// ─── ADD/EDIT EXPENSE ────────────────────────────────────────────────────────
+function openAdd(expId) {
+  editingExpenseId = expId || null;
+  const exp = expId ? state.expenses.find(e => e.id === expId) : null;
+  document.getElementById('sheet-add-title').textContent = exp ? 'Uredi trošak' : 'Novi trošak';
+  document.getElementById('btn-del-expense').style.display = exp ? 'block' : 'none';
+  refreshCatSelect();
+  if (exp) {
+    document.getElementById('add-type').value = exp.type;
+    refreshCatSelect();
+    document.getElementById('add-cat').value = exp.catId;
+    document.getElementById('add-name').value = exp.name;
+    document.getElementById('add-amount').value = exp.amount;
+    document.getElementById('add-date').value = exp.date;
+    document.getElementById('add-freq').value = exp.freq;
+    document.getElementById('add-note').value = exp.note || '';
+  } else {
+    document.getElementById('add-name').value = '';
+    document.getElementById('add-amount').value = '';
+    document.getElementById('add-date').value = new Date().toISOString().slice(0,10);
+    document.getElementById('add-freq').value = 'monthly';
+    document.getElementById('add-note').value = '';
+  }
+  openSheet('sheet-add');
+}
+function refreshCatSelect() {
+  const type = document.getElementById('add-type').value;
+  const sel = document.getElementById('add-cat');
+  sel.innerHTML = state[type].map(c => `<option value="${c.id}">${c.emoji} ${c.name}</option>`).join('');
+}
+function saveExpense() {
+  const name = document.getElementById('add-name').value.trim();
+  const amount = parseFloat(document.getElementById('add-amount').value);
+  if (!name || isNaN(amount) || amount <= 0) { showToast('⚠️ Unesite naziv i iznos'); return; }
+  const exp = {
+    id: editingExpenseId || uid(),
+    type: document.getElementById('add-type').value,
+    catId: document.getElementById('add-cat').value,
+    name, amount,
+    date: document.getElementById('add-date').value,
+    freq: document.getElementById('add-freq').value,
+    note: document.getElementById('add-note').value.trim(),
+  };
+  if (editingExpenseId) {
+    const idx = state.expenses.findIndex(e => e.id === editingExpenseId);
+    state.expenses[idx] = exp;
+    showToast('✅ Trošak ažuriran');
+  } else {
+    state.expenses.unshift(exp);
+    showToast('✅ Trošak dodan');
+  }
+  closeSheet('sheet-add');
+  goTab(document.querySelector('.tab-item.active').id.replace('tab-',''));
+}
+function deleteExpense() {
+  if (!editingExpenseId) return;
+  state.expenses = state.expenses.filter(e => e.id !== editingExpenseId);
+  closeSheet('sheet-add');
+  showToast('🗑️ Trošak obrisan');
+  goTab(document.querySelector('.tab-item.active').id.replace('tab-',''));
+}
+
+// ─── MANAGE CATEGORIES ───────────────────────────────────────────────────────
+function openManageCat(type) {
+  managingType = type;
+  document.getElementById('sheet-manage-title').textContent = type === 'komunalije' ? 'Komunalije – kategorije' : 'Pretplate – kategorije';
+  renderManageList();
+  openSheet('sheet-manage');
+}
+function renderManageList() {
+  const cats = state[managingType];
+  const el = document.getElementById('manage-list');
+  if (!cats.length) { el.innerHTML = '<div class="empty" style="padding:30px 0;"><div class="empty-icon">📂</div><div class="empty-title">Nema kategorija</div></div>'; return; }
+  el.innerHTML = '<div class="list-group" style="margin:0;">' + cats.map(c => `
+    <div class="list-row" onclick="openEditCat('${c.id}')">
+      <div class="list-icon" style="background:${colorBg(c.color)};color:${colorVar(c.color)};font-size:20px;">${c.emoji}</div>
+      <div class="list-info"><div class="list-name">${c.name}</div></div>
+      <div style="color:var(--text2);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg></div>
+    </div>`).join('') + '</div>';
+}
+function openNewCat() { openEditCat(null); }
+function openEditCat(id) {
+  editingCatId = id;
+  const cat = id ? state[managingType].find(c => c.id === id) : null;
+  document.getElementById('sheet-cat-title').textContent = cat ? 'Uredi kategoriju' : 'Nova kategorija';
+  document.getElementById('cat-name').value = cat ? cat.name : '';
+  document.getElementById('btn-del-cat').style.display = cat ? 'block' : 'none';
+  selectedEmoji = cat ? cat.emoji : EMOJIS[0];
+  selectedColor = cat ? cat.color : 'blue';
+  renderEmojiPicker();
+  renderColorPicker();
+  openSheet('sheet-cat');
+}
+function renderEmojiPicker() {
+  document.getElementById('emoji-picker').innerHTML = EMOJIS.map(e =>
+    `<div class="emoji-opt${e===selectedEmoji?' selected':''}" onclick="pickEmoji('${e}')">${e}</div>`).join('');
+}
+function renderColorPicker() {
+  document.getElementById('color-picker').innerHTML = COLORS.map(c =>
+    `<div class="color-opt${c===selectedColor?' selected':''}" style="background:${COLOR_HEX[c]};" onclick="pickColor('${c}')"></div>`).join('');
+}
+function pickEmoji(e) { selectedEmoji = e; renderEmojiPicker(); }
+function pickColor(c) { selectedColor = c; renderColorPicker(); }
+function saveCat() {
+  const name = document.getElementById('cat-name').value.trim();
+  if (!name) { showToast('⚠️ Unesite naziv kategorije'); return; }
+  if (editingCatId) {
+    const idx = state[managingType].findIndex(c => c.id === editingCatId);
+    state[managingType][idx] = {id: editingCatId, name, emoji: selectedEmoji, color: selectedColor};
+    showToast('✅ Kategorija ažurirana');
+  } else {
+    state[managingType].push({id: uid(), name, emoji: selectedEmoji, color: selectedColor});
+    showToast('✅ Kategorija dodana');
+  }
+  closeSheet('sheet-cat');
+  renderManageList();
+  renderPostavke();
+}
+function deleteCat() {
+  if (!editingCatId) return;
+  const used = state.expenses.some(e => e.type === managingType && e.catId === editingCatId);
+  if (used) { showToast('⚠️ Kategorija se koristi u troškovima'); return; }
+  state[managingType] = state[managingType].filter(c => c.id !== editingCatId);
+  closeSheet('sheet-cat');
+  renderManageList();
+  showToast('🗑️ Kategorija obrisana');
+}
+
+// ─── BUDGET ─────────────────────────────────────────────────────────────────
+function openBudget() {
+  document.getElementById('budget-input').value = state.budget || '';
+  openSheet('sheet-budget');
+}
+function saveBudget() {
+  const v = parseFloat(document.getElementById('budget-input').value);
+  if (!isNaN(v) && v > 0) { state.budget = v; showToast('✅ Budžet postavljen'); }
+  closeSheet('sheet-budget');
+  renderPostavke();
+  renderPregled();
+}
+function clearAll() {
+  if (confirm('Obrisati sve troškove? Kategorije ostaju.')) {
+    state.expenses = [];
+    showToast('🗑️ Svi troškovi obrisani');
+    renderPregled();
+  }
+}
+
+// ─── RENDER: PREGLED ─────────────────────────────────────────────────────────
+function renderPregled() {
+  const now = new Date();
+  const monthly = state.expenses.reduce((s, e) => s + monthlyEq(e), 0);
+  const annual = monthly * 12;
+  const subs = state.expenses.filter(e => e.type === 'pretplate').reduce((s, e) => s + monthlyEq(e), 0);
+
+  document.getElementById('h-annual').textContent = fmt(annual);
+  document.getElementById('h-month-label').textContent = `~${fmtKM(monthly)} / mj. · ${MONTHS_BS[now.getMonth()]} ${now.getFullYear()}`;
+  document.getElementById('h-monthly').textContent = fmtKM(monthly);
+  document.getElementById('h-count').textContent = state.expenses.length;
+  document.getElementById('h-subs').textContent = fmtKM(subs);
+
+  // Alerts
+  const alertEl = document.getElementById('alert-section');
+  const upcoming = state.expenses.filter(e => {
+    const d = new Date(e.date);
+    const diff = (d - now) / 86400000;
+    return diff >= 0 && diff <= 7;
+  });
+  if (upcoming.length) {
+    alertEl.innerHTML = `<div class="alert-card"><div class="alert-header"><span style="font-size:16px;">⏰</span><span class="alert-title">Uskoro dospijeva</span></div>` +
+      upcoming.map(e => {
+        const d = new Date(e.date);
+        return `<div class="alert-row"><span class="alert-name">${e.name}</span><div class="alert-right"><span class="alert-date">${d.getDate()}.${d.getMonth()+1}.</span><span class="alert-amt">${fmtKM(e.amount)}</span></div></div>`;
+      }).join('') + '</div>';
+  } else alertEl.innerHTML = '';
+
+  // Donut
+  const groups = {};
+  state.expenses.forEach(e => {
+    const cat = getCat(e.type, e.catId);
+    if (!cat) return;
+    const key = cat.name;
+    groups[key] = (groups[key] || {total:0,color:cat.color,emoji:cat.emoji});
+    groups[key].total += monthlyEq(e);
+  });
+  const gArr = Object.entries(groups).sort((a,b) => b[1].total - a[1].total).slice(0,5);
+  const total = gArr.reduce((s,[,v]) => s + v.total, 0);
+  document.getElementById('donut-center-val').textContent = fmtKM(total).replace(' KM','KM');
+
+  const R=40, C=50, circ=2*Math.PI*R;
+  let offset=0;
+  const DONUT_COLORS = ['#007aff','#af52de','#ff3b30','#ff9500','#34c759'];
+  const svgSlices = gArr.map(([,v],i) => {
+    const pct = total > 0 ? v.total/total : 0;
+    const dash = pct * circ;
+    const s = `<circle cx="${C}" cy="${C}" r="${R}" fill="none" stroke="${DONUT_COLORS[i]}" stroke-width="12" stroke-dasharray="${dash} ${circ - dash}" stroke-dashoffset="${-offset}" stroke-linecap="round"/>`;
+    offset += dash;
+    return s;
+  }).join('');
+  document.getElementById('donut-svg').innerHTML = `<circle cx="${C}" cy="${C}" r="${R}" fill="none" stroke="var(--surface3)" stroke-width="12"/>` + svgSlices;
+  document.getElementById('donut-legend').innerHTML = gArr.map(([name,v],i) =>
+    `<div class="legend-row"><div class="legend-dot" style="background:${DONUT_COLORS[i]};"></div><span class="legend-name">${name}</span><span class="legend-val">${fmtKM(v.total)}</span></div>`
+  ).join('');
+
+  // Budget bar
+  const pct = state.budget > 0 ? Math.min((monthly / state.budget) * 100, 100) : 0;
+  const fill = document.getElementById('bar-fill');
+  fill.style.width = pct + '%';
+  fill.className = 'bar-fill' + (pct > 90 ? ' danger' : pct > 70 ? ' warn' : '');
+  document.getElementById('budget-lbl').textContent = state.budget ? `Budžet: ${fmtKM(state.budget)}` : 'Budžet nije postavljen';
+  document.getElementById('budget-pct-lbl').textContent = state.budget ? Math.round(pct) + '%' : '';
+
+  // Recent
+  const recent = [...state.expenses].slice(0,5);
+  renderExpenseList('recent-list', recent, true);
+}
+
+// ─── RENDER: ALL ─────────────────────────────────────────────────────────────
+function renderAll() {
+  const total = state.expenses.reduce((s,e) => s+e.amount, 0);
+  document.getElementById('all-subtitle').textContent = `${state.expenses.length} stavki · Ukupno: ${fmtKM(total)}`;
+  if (!state.expenses.length) {
+    document.getElementById('all-list').innerHTML = '<div class="empty"><div class="empty-icon">📋</div><div class="empty-title">Nema troškova</div><div class="empty-sub">Dodaj prvi trošak klikom na +</div></div>';
+    return;
+  }
+  renderExpenseList('all-list', state.expenses, true);
+}
+
+// ─── RENDER: KOMUNALIJE ───────────────────────────────────────────────────────
+function renderKom() {
+  const exps = state.expenses.filter(e => e.type === 'komunalije');
+  if (!exps.length) {
+    document.getElementById('kom-list').innerHTML = '<div class="empty"><div class="empty-icon">🏠</div><div class="empty-title">Nema komunalija</div><div class="empty-sub">Dodaj klikom na +</div></div>';
+    return;
+  }
+  renderExpenseList('kom-list', exps, true);
+}
+
+// ─── RENDER: PRETPLATE ────────────────────────────────────────────────────────
+function renderPre() {
+  const exps = state.expenses.filter(e => e.type === 'pretplate');
+  if (!exps.length) {
+    document.getElementById('pre-list').innerHTML = '<div class="empty"><div class="empty-icon">📱</div><div class="empty-title">Nema pretplata</div><div class="empty-sub">Dodaj klikom na +</div></div>';
+    return;
+  }
+  renderExpenseList('pre-list', exps, true);
+}
+
+// ─── RENDER: POSTAVKE ─────────────────────────────────────────────────────────
+function renderPostavke() {
+  document.getElementById('s-budget-desc').textContent = state.budget ? fmtKM(state.budget) + ' / mj.' : 'Nije postavljeno';
+  document.getElementById('s-kom-count').textContent = state.komunalije.length + ' kategorija';
+  document.getElementById('s-pre-count').textContent = state.pretplate.length + ' kategorija';
+}
+
+// ─── GENERIC LIST RENDERER ───────────────────────────────────────────────────
+function renderExpenseList(containerId, exps, clickable) {
+  const el = document.getElementById(containerId);
+  if (!exps.length) { el.innerHTML = ''; return; }
+  el.innerHTML = exps.map(e => {
+    const cat = getCat(e.type, e.catId);
+    if (!cat) return '';
+    const freqLabel = e.freq === 'monthly' ? '<span class="pill pill-monthly">Mj.</span>' : e.freq === 'annual' ? '<span class="pill pill-annual">God.</span>' : '<span class="pill pill-once">Jednom</span>';
+    const d = new Date(e.date);
+    const dateStr = `${d.getDate()}. ${MONTHS_BS[d.getMonth()]}`;
+    return `<div class="list-row" onclick="openAdd('${e.id}')">
+      <div class="list-icon" style="background:${colorBg(cat.color)};color:${colorVar(cat.color)};">${cat.emoji}</div>
+      <div class="list-info">
+        <div class="list-name">${e.name}</div>
+        <div class="list-meta">${cat.name} · ${dateStr}${e.note ? ' · ' + e.note : ''}</div>
+      </div>
+      <div class="list-right">
+        <span class="list-amount" style="color:${colorVar(cat.color)};">${fmtKM(e.amount)}</span>
+        ${freqLabel}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ─── INIT ────────────────────────────────────────────────────────────────────
+renderPregled();
+renderPostavke();
+</script>
+</body>
+</html>
